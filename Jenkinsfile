@@ -87,7 +87,7 @@ pipeline {
         stage("Prepare") {
             agent { label "linux && java17" }
             environment {
-                APP = credentials("cikal_cakep")
+                APP = credentials("github cikal")
             }
             steps {
                 echo "Author: ${AUTHOR}"
@@ -172,7 +172,7 @@ pipeline {
             }
             steps {
                 withCredentials([usernamePassword(
-                    credentialsId: "cikal_cakep",
+                    credentialsId: "github cikal",
                     usernameVariable: "USER",
                     passwordVariable: "PASSWORD"
                     )]) {
